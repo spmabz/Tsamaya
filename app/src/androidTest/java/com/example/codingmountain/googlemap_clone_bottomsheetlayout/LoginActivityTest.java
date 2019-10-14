@@ -17,12 +17,20 @@ import org.junit.Rule;
 import org.junit.Test;
 
 
+import java.util.concurrent.TimeUnit;
+
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.closeSoftKeyboard;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
 
 
@@ -33,6 +41,9 @@ public class LoginActivityTest {
     public ActivityTestRule<LoginActivity> activityActivityTestRule = new ActivityTestRule<>(LoginActivity.class);
     private LoginActivity loginActivity = null;
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MapsActivity.class.getName(),null,false);
+    Instrumentation.ActivityMonitor monitor1 = getInstrumentation().addMonitor(LoginActivity.class.getName(),null,false);
+    Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(SignupActivity.class.getName(),null,false);
+
 
     @Before
     public void setUp() throws Exception {
@@ -71,24 +82,42 @@ public class LoginActivityTest {
     }
 
     @Test
-    public void onActivityResult() {
+    public void onclick() throws InterruptedException{
+
+        onView(withId(R.id.link_ForgetP)).perform(click());
+        onView(withId(R.id.send_mail)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.btn_reset)).perform(click());
+
+
+        Activity fpassword = getInstrumentation().waitForMonitorWithTimeout(monitor1,10000);
+        assertNotNull(fpassword);
+        fpassword.finish();
 
     }
-
     @Test
-    public void onBackPressed() {
-    }
+    public void onclicksignup() throws InterruptedException {
 
+        onView(withId(R.id.link_signup)).perform(click());
+        //onView(withId(R.id.link_signup)).perform(click());
+        //TimeUnit.SECONDS.sleep(2);
+        Activity signup= getInstrumentation().waitForMonitorWithTimeout(monitor2,10000);
+        assertNotNull(signup);
+        signup.finish();
+
+
+    }
     @Test
-    public void onLoginSuccess() {
+    public void shouldShowToast() {
+
+        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.input_password)).perform(typeText("12346"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.btn_login)).perform(click());
+
+        onView(withText("Incorrect Password or Email")).inRoot(withDecorView(not(is(activityActivityTestRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
 
     }
 
-    @Test
-    public void onLoginFailed() {
-    }
 
-    @Test
-    public void validate() {
-    }
+
+
 }

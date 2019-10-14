@@ -72,13 +72,7 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
-//        _signupButton.setEnabled(false);
-//
-//        final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
-//                R.style.AppTheme);
-//        progressDialog.setIndeterminate(true);
-//        progressDialog.setMessage("Creating Account...");
-//        progressDialog.show();
+
 
         mProgress.setMessage("Creating Account...");
         mProgress.show();
@@ -125,24 +119,11 @@ public class SignupActivity extends AppCompatActivity {
 
         // TODO: Implement your own signup logic here.
 
-//        new android.os.Handler().postDelayed(
-//                new Runnable() {
-//                    public void run() {
-//                        // On complete call either onSignupSuccess or onSignupFailed
-//                        // depending on success
-//                        //onSignupSuccess();
-//                        // onSignupFailed();
-//                      //  progressDialog.dismiss();
-//                    }
-//                }, 3000);
+
     }
 
 
-//    public void onSignupSuccess() {
-//        _signupButton.setEnabled(true);
-//        setResult(RESULT_OK, null);
-//        finish();
-//    }
+
 
     public void onSignupFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
@@ -158,6 +139,7 @@ public class SignupActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
+            Toast.makeText(SignupActivity.this,"at least 3 characters" , Toast.LENGTH_LONG).show();
             _nameText.setError("at least 3 characters");
             valid = false;
         } else {
@@ -165,6 +147,7 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(SignupActivity.this, "enter a valid email address", Toast.LENGTH_LONG).show();
             _emailText.setError("enter a valid email address");
             valid = false;
         } else {
@@ -172,6 +155,7 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         if (password.isEmpty() || password.length() < 6 || password.length() > 15) {
+            Toast.makeText(SignupActivity.this,"between 6 and 15 alphanumeric characters" , Toast.LENGTH_LONG).show();
             _passwordText.setError("between 6 and 15 alphanumeric characters");
             valid = false;
         } else {

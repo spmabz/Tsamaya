@@ -125,22 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
 
-//        _loginButton.setEnabled(false);
-//
-//        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
-//                R.style.AppTheme);
-//        progressDialog.setIndeterminate(true);
-//        progressDialog.setMessage("Logging In...");
-//        progressDialog.show();
-//        new android.os.Handler().postDelayed(
-//                new Runnable() {
-//                    public void run() {
-//                        // On complete call either onLoginSuccess or onLoginFailed
-//                        onLoginSuccess();
-//                        // onLoginFailed();
-//                        progressDialog.dismiss();
-//                    }
-//                }, 3000);
+
 
     }
 
@@ -163,10 +148,7 @@ public class LoginActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
-    public void onLoginSuccess() {
-        _loginButton.setEnabled(true);
-        finish();
-    }
+
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Incorrect Password or Email", Toast.LENGTH_LONG).show();
