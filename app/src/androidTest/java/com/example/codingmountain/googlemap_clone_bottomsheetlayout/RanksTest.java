@@ -51,62 +51,62 @@ public class RanksTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void OnCreate() throws InterruptedException {
-
-        assertNotNull(loginActivity.findViewById(R.id.btn_login));
-        assertNotNull(loginActivity.findViewById(R.id.input_email));
-        assertNotNull(loginActivity.findViewById(R.id.input_password));
-
-        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"),closeSoftKeyboard());
-        onView(withId(R.id.input_password)).perform(typeText("123456"),closeSoftKeyboard());
-        onView(withId(R.id.btn_login)).perform(click());
-
-        Activity map = getInstrumentation().waitForMonitorWithTimeout(mapMonitor,10000);
-        assertNotNull(map);
-
-        if(checkPermission()){
-            System.out.println("Alec has permission");
-        }else{
-            System.out.println("Alec no permision");
-            try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    //sleep(PERMISSIONS_DIALOG_DELAY);
-                    UiDevice device = UiDevice.getInstance(getInstrumentation());
-                    UiObject allowPermissions = device.findObject(new UiSelector()
-                            .clickable(true)
-                            .checkable(false)
-                            .index(0));
-                    if (allowPermissions.exists()) {
-                        allowPermissions.click();
-                    }
-                }
-            } catch (UiObjectNotFoundException e) {
-                System.out.println("There is no permissions dialog to interact with");
-            }
-        }
-
-        assertNotNull(map.findViewById(R.id.floatingActionButtonMenu));
-        onView(withId(R.id.floatingActionButtonMenu)).perform(click());
-
-        assertNotNull(map.findViewById(R.id.fab_action1));
-        onView(withId(R.id.fab_action1)).perform(click());
-        onView(withId(R.id.fab_action1)).perform(click());
-        TimeUnit.SECONDS.sleep(5);
-
-        Activity ranks = getInstrumentation().waitForMonitorWithTimeout(ranksMonitor,10000);
-        assertNotNull(ranks);
-
-        assertNotNull(ranks.findViewById(R.id.listView));
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-
-        Activity routes = getInstrumentation().waitForMonitorWithTimeout(routesMonitor,10000);
-        assertNotNull(routes);
-        TimeUnit.SECONDS.sleep(5);
-
-        routes.finish();
-
-    }
+//    @Test
+//    public void OnCreate() throws InterruptedException {
+//
+//        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+//        assertNotNull(loginActivity.findViewById(R.id.input_email));
+//        assertNotNull(loginActivity.findViewById(R.id.input_password));
+//
+//        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"),closeSoftKeyboard());
+//        onView(withId(R.id.input_password)).perform(typeText("123456"),closeSoftKeyboard());
+//        onView(withId(R.id.btn_login)).perform(click());
+//
+//        Activity map = getInstrumentation().waitForMonitorWithTimeout(mapMonitor,10000);
+//        assertNotNull(map);
+//
+//        if(checkPermission()){
+//            System.out.println("Alec has permission");
+//        }else{
+//            System.out.println("Alec no permision");
+//            try {
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                    //sleep(PERMISSIONS_DIALOG_DELAY);
+//                    UiDevice device = UiDevice.getInstance(getInstrumentation());
+//                    UiObject allowPermissions = device.findObject(new UiSelector()
+//                            .clickable(true)
+//                            .checkable(false)
+//                            .index(0));
+//                    if (allowPermissions.exists()) {
+//                        allowPermissions.click();
+//                    }
+//                }
+//            } catch (UiObjectNotFoundException e) {
+//                System.out.println("There is no permissions dialog to interact with");
+//            }
+//        }
+//
+//        assertNotNull(map.findViewById(R.id.floatingActionButtonMenu));
+//        onView(withId(R.id.floatingActionButtonMenu)).perform(click());
+//
+//        assertNotNull(map.findViewById(R.id.fab_action1));
+//        onView(withId(R.id.fab_action1)).perform(click());
+//        onView(withId(R.id.fab_action1)).perform(click());
+//        TimeUnit.SECONDS.sleep(5);
+//
+//        Activity ranks = getInstrumentation().waitForMonitorWithTimeout(ranksMonitor,10000);
+//        assertNotNull(ranks);
+//
+//        assertNotNull(ranks.findViewById(R.id.listView));
+//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
+//
+//        Activity routes = getInstrumentation().waitForMonitorWithTimeout(routesMonitor,10000);
+//        assertNotNull(routes);
+//        TimeUnit.SECONDS.sleep(5);
+//
+//        routes.finish();
+//
+//    }
 
     public boolean checkPermission() {
 

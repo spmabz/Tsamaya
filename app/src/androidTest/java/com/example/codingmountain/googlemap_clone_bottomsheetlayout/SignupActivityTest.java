@@ -47,26 +47,26 @@ public class SignupActivityTest {
     public void onCreate() {
     }
 
-    @Test
-    public void signup() {
-
-        ViewInteraction name = onView( withId(R.id.input_name));
-        name.perform(ViewActions.typeText("name"),ViewActions.closeSoftKeyboard());
-
-        View n = signupActivity.findViewById(R.id.input_name);
-        assertEquals(n,signupActivity._nameText);
-
-        ViewInteraction user_email = onView( withId( R.id.input_email));
-        user_email.perform(ViewActions.typeText("redeye@gmail.com"),ViewActions.closeSoftKeyboard());
-
-        ViewInteraction pass = onView(withId(R.id.input_password));
-        pass.perform(ViewActions.typeText("123456"),ViewActions.closeSoftKeyboard() );
-        onView(withId(R.id.btn_signup)).perform(click());
-
-        Activity login= getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
-        assertNotNull(login);
-        login.finish();
-    }
+//    @Test
+//    public void signup() {
+//
+//        ViewInteraction name = onView( withId(R.id.input_name));
+//        name.perform(ViewActions.typeText("name"),ViewActions.closeSoftKeyboard());
+//
+//        View n = signupActivity.findViewById(R.id.input_name);
+//        assertEquals(n,signupActivity._nameText);
+//
+//        ViewInteraction user_email = onView( withId( R.id.input_email));
+//        user_email.perform(ViewActions.typeText("redeye@gmail.com"),ViewActions.closeSoftKeyboard());
+//
+//        ViewInteraction pass = onView(withId(R.id.input_password));
+//        pass.perform(ViewActions.typeText("123456"),ViewActions.closeSoftKeyboard() );
+//        onView(withId(R.id.btn_signup)).perform(click());
+//
+//        Activity login= getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
+//        assertNotNull(login);
+//        login.finish();
+//    }
 
 
    /* @Test
@@ -81,31 +81,31 @@ public class SignupActivityTest {
         onView(withText("at least 3 characters")).inRoot(withDecorView(not(is(activityActivityTestRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
 
     }*/
-    @Test
-    public void ShowToast_email() {
-
-        ViewInteraction name = onView( withId(R.id.input_name));
-        name.perform(ViewActions.typeText("name"),ViewActions.closeSoftKeyboard());
-       // onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.input_password)).perform(typeText("12346"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.btn_signup)).perform(click());
-
-        onView(withText("enter a valid email address")).inRoot(withDecorView(not(is(activityActivityTestRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
-
-    }
-
-    @Test
-    public void ShowToast_password() {
-
-        ViewInteraction name = onView( withId(R.id.input_name));
-        name.perform(ViewActions.typeText("name"),ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
-        //onView(withId(R.id.input_password)).perform(typeText("12346"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.btn_signup)).perform(click());
-
-        onView(withText("between 6 and 15 alphanumeric characters")).inRoot(withDecorView(not(is(activityActivityTestRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
-
-    }
+//    @Test
+//    public void ShowToast_email() {
+//
+//        ViewInteraction name = onView( withId(R.id.input_name));
+//        name.perform(ViewActions.typeText("name"),ViewActions.closeSoftKeyboard());
+//       // onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+//        onView(withId(R.id.input_password)).perform(typeText("12346"), ViewActions.closeSoftKeyboard());
+//        onView(withId(R.id.btn_signup)).perform(click());
+//
+//        onView(withText("enter a valid email address")).inRoot(withDecorView(not(is(activityActivityTestRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+//
+//    }
+//
+//    @Test
+//    public void ShowToast_password() {
+//
+//        ViewInteraction name = onView( withId(R.id.input_name));
+//        name.perform(ViewActions.typeText("name"),ViewActions.closeSoftKeyboard());
+//        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+//        //onView(withId(R.id.input_password)).perform(typeText("12346"), ViewActions.closeSoftKeyboard());
+//        onView(withId(R.id.btn_signup)).perform(click());
+//
+//        onView(withText("between 6 and 15 alphanumeric characters")).inRoot(withDecorView(not(is(activityActivityTestRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+//
+//    }
 
 
 
