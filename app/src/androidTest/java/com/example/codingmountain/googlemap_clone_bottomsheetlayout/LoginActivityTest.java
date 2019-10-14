@@ -63,23 +63,23 @@ public class LoginActivityTest {
 
     }
 
-   @Test
-   public void login() {
-       assertNotNull(loginActivity.findViewById(R.id.btn_login));
-       assertNotNull(loginActivity.findViewById(R.id.input_email));
-       assertNotNull(loginActivity.findViewById(R.id.input_password));
+//    @Test
+//    public void login() {
+//        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+//        assertNotNull(loginActivity.findViewById(R.id.input_email));
+//        assertNotNull(loginActivity.findViewById(R.id.input_password));
 
 
-       onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
-       onView(withId(R.id.input_password)).perform(typeText("123456"), ViewActions.closeSoftKeyboard());
-       onView(withId(R.id.btn_login)).perform(click());
+//        onView(withId(R.id.input_email)).perform(typeText("alec@gmail.com"), ViewActions.closeSoftKeyboard());
+//        onView(withId(R.id.input_password)).perform(typeText("123456"), ViewActions.closeSoftKeyboard());
+//        onView(withId(R.id.btn_login)).perform(click());
 
-       Activity MapActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
+//        Activity MapActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,10000);
 
-       assertNotNull(MapActivity);
+//        assertNotNull(MapActivity);
 
-       MapActivity.finish();
-   }
+//        MapActivity.finish();
+//    }
 
 //    @Test
 //    public void onclick() throws InterruptedException{
