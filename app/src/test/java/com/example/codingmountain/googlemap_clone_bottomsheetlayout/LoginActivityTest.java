@@ -21,16 +21,29 @@ public class LoginActivityTest {
 
     @Before
     public void setUp() throws Exception {
+
         login=Robolectric.setupActivity(LoginActivity.class);
     }
     @Test
     public void checkUser() {
 
-//        login._emailText.setText("alec@gmail.com");
-//        login._passwordText.setText("123456");
-//        login.findViewById(R.id.btn_login).performClick();
+        assertNotNull(login);
     }
 
+    @Test
+    public void checkUser2() {
+        login._emailText.setText("alec@gmail.com");
+//        login._passwordText.setText("123456");
+        login.findViewById(R.id.btn_login).performClick();
+    }
+
+    @Test
+    public void checkUser3() {
+        login._emailText.setText("");
+        login._passwordText.setText("");
+        login.findViewById(R.id.btn_login).performClick();
+
+    }
     @After
     public void tearDown() throws Exception {
     }
