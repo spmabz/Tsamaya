@@ -6,11 +6,16 @@ import android.widget.Toast;
 
 import com.hsalf.smilerating.SmileRating;
 
+
 public class RatingActivity extends Activity {
+
+   // private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ratings);
+
+
 
         SmileRating smileRating = (SmileRating) findViewById(R.id.smile_rating);
         smileRating.setOnSmileySelectionListener(new SmileRating.OnSmileySelectionListener() {
