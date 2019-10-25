@@ -94,18 +94,18 @@ public class LoginActivityTest {
 //        fpassword.finish();
 //
 //    }
-//    @Test
-//    public void onclicksignup() throws InterruptedException {
-//
-//        onView(withId(R.id.link_signup)).perform(click());
-//        //onView(withId(R.id.link_signup)).perform(click());
-//        //TimeUnit.SECONDS.sleep(2);
-//        Activity signup= getInstrumentation().waitForMonitorWithTimeout(monitor2,10000);
-//        assertNotNull(signup);
-//        signup.finish();
-//
-//
-//    }
+   @Test
+   public void onclicksignup() throws InterruptedException {
+
+       onView(withId(R.id.link_signup)).perform(click());
+       //onView(withId(R.id.link_signup)).perform(click());
+       //TimeUnit.SECONDS.sleep(2);
+       Activity signup= getInstrumentation().waitForMonitorWithTimeout(monitor2,10000);
+       assertNotNull(signup);
+       signup.finish();
+
+
+   }
 //    @Test
 //    public void shouldShowToast() {
 //
