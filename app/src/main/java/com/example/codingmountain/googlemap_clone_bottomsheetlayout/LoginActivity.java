@@ -92,39 +92,14 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        mProgress.setMessage("Logging In...");
-        mProgress.show();
 
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+
 
         // TODO: Implement your own authentication logic here.
 
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            mProgress.dismiss();
-                            Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                            startActivity(intent);
-
-
-                        } else {
-                           mProgress.dismiss();
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
+        Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+        startActivity(intent);
 
 
 

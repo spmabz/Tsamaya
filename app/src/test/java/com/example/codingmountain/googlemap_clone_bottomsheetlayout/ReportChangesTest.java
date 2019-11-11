@@ -1,5 +1,8 @@
 package com.example.codingmountain.googlemap_clone_bottomsheetlayout;
 
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +12,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import static org.junit.Assert.*;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*;import static org.hamcrest.CoreMatchers.equalTo;
 @RunWith(RobolectricTestRunner.class)
 public class ReportChangesTest {
     ReportChanges change;
@@ -26,4 +29,5 @@ public class ReportChangesTest {
     @After
     public void tearDown() throws Exception {
     }
+
 }

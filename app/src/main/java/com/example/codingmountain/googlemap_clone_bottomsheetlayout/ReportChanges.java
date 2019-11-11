@@ -25,7 +25,7 @@ public class ReportChanges extends Activity implements View.OnClickListener {
     TextView belowThirty;
     TextView withinHour;
     TextView overHour;
-
+    Toast tosting;
     TextView taxiPresent;
     TextView taxiAbsent;
 
@@ -117,7 +117,7 @@ public class ReportChanges extends Activity implements View.OnClickListener {
             ((ViewGroup) withinHour.getParent()).removeView(withinHour);
             ((ViewGroup) overHour.getParent()).removeView(overHour);
 
-            Toast.makeText(getApplicationContext(),"less than 30",Toast.LENGTH_SHORT).show();
+            tosting.makeText(getApplicationContext(),"less than 30",Toast.LENGTH_SHORT).show();
         }
 
         else if(view.equals(withinHour)){

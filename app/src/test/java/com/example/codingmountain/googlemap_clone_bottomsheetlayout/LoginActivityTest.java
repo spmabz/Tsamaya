@@ -1,5 +1,8 @@
 package com.example.codingmountain.googlemap_clone_bottomsheetlayout;
 
+import android.content.Intent;
+import android.widget.Button;
+
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseApp;
 
@@ -13,6 +16,8 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.Shadows;
+
 @RunWith(RobolectricTestRunner.class)
 
 public class LoginActivityTest {
@@ -44,7 +49,11 @@ public class LoginActivityTest {
         login.findViewById(R.id.btn_login).performClick();
 
     }
+
+
     @After
     public void tearDown() throws Exception {
     }
+
+
 }

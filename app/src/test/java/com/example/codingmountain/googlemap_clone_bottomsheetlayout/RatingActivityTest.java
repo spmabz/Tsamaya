@@ -14,11 +14,14 @@ import org.robolectric.RuntimeEnvironment;
 
 public class RatingActivityTest {
     RatingActivity rating;
+    Routes routes;
 
     @Before
     public void setUp() throws Exception {
 
-        rating=Robolectric.setupActivity(RatingActivity.class);
+
+
+        rating=Robolectric.buildActivity(RatingActivity.class).setup().get();
     }
 
     @After
@@ -30,4 +33,6 @@ public class RatingActivityTest {
 
         assertNotNull(rating);
     }
+
+
 }

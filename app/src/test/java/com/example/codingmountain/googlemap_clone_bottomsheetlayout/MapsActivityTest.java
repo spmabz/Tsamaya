@@ -19,7 +19,7 @@ public class MapsActivityTest {
     public void setUp() throws Exception {
         Intent intent = new Intent(RuntimeEnvironment.application,MapsActivity.class);
         intent.putExtra("email","alec@gmail.com");
-        maps=Robolectric.setupActivity(MapsActivity.class);
+        maps=Robolectric.buildActivity(MapsActivity.class).setup().get();
     }
 
     @After
